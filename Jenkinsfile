@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven-3.9.11'   // Configure Maven in Jenkins global tools
-        jdk 'JDK-21'          // Configure JDK in Jenkins global tools
+        maven 'Maven-3.9.11'
+        jdk 'JDK-21'
     }
 
     stages {
@@ -15,19 +15,19 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'mvn package'
+                bat 'mvn package'
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
@@ -35,7 +35,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying JAR to server...'
-                // Add deployment script here (e.g., copy JAR to server or run Docker build)
             }
         }
     }
