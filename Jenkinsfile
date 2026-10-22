@@ -31,6 +31,12 @@ pipeline {
                 archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
             }
         }
+        stage('Run App') {
+            steps {
+                bat 'java -cp target/java-app-1.0-SNAPSHOT.jar com.example.App'
+            }
+        }
+
 
         stage('Deploy') {
             steps {
