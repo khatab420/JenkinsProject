@@ -1,1 +1,1 @@
- for dyanmicd
+ for dyanmic
