@@ -1,1 +1,1 @@
-d
+ for dyanmic
